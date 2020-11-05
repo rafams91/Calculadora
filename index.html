@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora</title>
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+
+        <style>
+
+            body{
+                margin-top: 120px;
+            }
+
+            div#corpo{
+                width: 400px;
+                background: rgb(156, 196, 173);
+                padding: 20px;
+            }
+            div#teclado{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-gap: 10px;
+            }
+            div#visor{
+                padding: 5px;
+                font-size: 30px;
+                text-align: right;
+                margin: 10px 0;
+            }
+
+        </style>
+        
+
+    </head>
+    <body>
+        <main>
+            <form id="idCalculadora" name="nmCalculadora">
+                <div id="corpo" class="container">
+
+                    <div id="visor" class="calculator-screen z-depth-1">
+                        <input type="text" id="idVisor" name="nmVisor" class="calculator-screen z-depth-1" value="">
+                    </div>
+            
+                    <div id="teclado" class="container">
+                        <input type="reset"  id="idC" name="nmC" class="btn btn-danger"    value="C">                        <input type="button" id="idMaisMenos" name="nmMaisMenos" class="btn btn-secondary" value="" onclick="botao(value)"> <input type="button" id="idPorcentagem" name="nmPorcentagem" class="btn btn-secondary" value="" onclick="botao(value)"> <input type="reset"  id="idDel"         name="nmDel"         class="btn btn-danger"  value="DEL">
+                        <input type="button" id="id7" name="nm7" class="btn btn-secondary" value="7" onclick="botao(value)"> <input type="button" id="id8"         name="nm8"         class="btn btn-secondary" value="8" onclick="botao(value)">   <input type="button" id="id9"           name="nm9"           class="btn btn-secondary" value="9" onclick="botao(value)"> <input type="button" id="idDividir"     name="nmDividir"     class="btn btn-primary" value="/" onclick="botao(value)">
+                        <input type="button" id="id4" name="nm4" class="btn btn-secondary" value="4" onclick="botao(value)"> <input type="button" id="id5"         name="nm5"         class="btn btn-secondary" value="5" onclick="botao(value)">   <input type="button" id="id6"           name="nm6"           class="btn btn-secondary" value="6" onclick="botao(value)"> <input type="button" id="idMultiplicar" name="nmMultiplicar" class="btn btn-primary" value="*" onclick="botao(value)">
+                        <input type="button" id="id1" name="nm1" class="btn btn-secondary" value="1" onclick="botao(value)"> <input type="button" id="id2"         name="nm2"         class="btn btn-secondary" value="2" onclick="botao(value)">   <input type="button" id="id3"           name="nm3"           class="btn btn-secondary" value="3" onclick="botao(value)"> <input type="button" id="idMenis"       name="nmMenos"       class="btn btn-primary" value="-" onclick="botao(value)">
+                        <input type="button" id="id0" name="nm0" class="btn btn-secondary" value="0" onclick="botao(value)"> <input type="button" id="idPonto"     name="nmPonto"     class="btn btn-secondary" value="." onclick="botao(value)">   <input type="button" id="idIgual"       name="nmIgual"       class="btn btn-success"   value="=" onclick="calcular()">   <input type="button" id="idMais"        name="nmMais"        class="btn btn-primary" value="+" onclick="botao(value)">    
+                    </div>
+        
+                </div>
+            </form>
+
+        </main>
+
+        <script>
+            var valor;
+            var resultado;
+            function botao (num) {
+                valor = document.nmCalculadora.nmVisor.value += num
+            }
+
+            function calcular() {
+                resultado = eval(valor)
+                document.nmCalculadora.nmVisor.value = resultado.toLocaleString('pt-br')
+            }
+        </script>
+        
+    </body>
+</html>
